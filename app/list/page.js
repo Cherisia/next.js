@@ -7,6 +7,7 @@ export default function List() {
                 items.map((item, i) => {
                     return (
                         <div className="food" key={i}>
+                            <img src={`/portfolio-${i+1}.jpg`} className="food-img" alt="이미지"/>
                             <h4>{item} $40</h4>
                         </div>
                     );
