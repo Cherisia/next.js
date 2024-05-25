@@ -2,30 +2,29 @@ import {age, name} from './data.js';
 import Hello from "./hello";
 
 export default function Cart() {
-    console.log('age : ' + age);
-    console.log('name : ' + name);
+    let items = ['pasta', 'pizza'];
     return (
         <div>
             <Hello/>
+            <Btn color="red"/>
+            <Btn color="blue"/>
             <h4 className="title">Cart</h4>
-            <CartItem/>
+            <CartItem item={items[0]}/>
+            <CartItem item={items[1]}/>
         </div>
     )
 }
 
-function CartItem() {
+function CartItem(props) {
     return (
-        <div>
-            <div className="cart-item">
-                <p>상품명</p>
-                <p>$40</p>
-                <p>1개</p>
-            </div>
-            <div className="cart-item">
-                <p>상품명</p>
-                <p>$40</p>
-                <p>1개</p>
-            </div>
+        <div className="cart-item">
+            <p>{props.item}</p>
+            <p>$40</p>
+            <p>1개</p>
         </div>
     )
+}
+
+function Btn(props){
+    return <button style={{ background : props.color }}>버튼</button>
 }
